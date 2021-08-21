@@ -2,6 +2,5 @@
 
 Calculator project.
 
-## Getting Started
 
 
