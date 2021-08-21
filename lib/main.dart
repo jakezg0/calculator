@@ -90,12 +90,13 @@ class _HomePageState extends State<HomePage> {
           Expanded(
             flex: 3,
             child: Container(
+              alignment: Alignment.bottomCenter,
               child: GridView.builder(
                   physics: NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   itemCount: buttons.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    childAspectRatio: 1.4,
+                    childAspectRatio: 7/5,
                       crossAxisCount: 4),
                   itemBuilder: (BuildContext context, int index) {
                     // Clear Button
@@ -105,7 +106,6 @@ class _HomePageState extends State<HomePage> {
                           setState(() {
                             userInput = '';
                             answer = '0';
-                            print('pressed me $index');
                           });
                         },
                         buttonText: buttons[index],
