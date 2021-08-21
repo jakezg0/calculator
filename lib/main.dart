@@ -58,15 +58,16 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.white38,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Expanded(
             flex: 2,
             child: Container(
               child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Container(
-                      padding: EdgeInsets.all(20),
+                      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                       alignment: Alignment.centerRight,
                       child: Text(
                         userInput,
@@ -74,7 +75,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     Container(
-                      padding: EdgeInsets.all(15),
+                      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                       alignment: Alignment.centerRight,
                       child: Text(
                         answer,
@@ -92,7 +93,7 @@ class _HomePageState extends State<HomePage> {
             child: Container(
               alignment: Alignment.bottomCenter,
               child: GridView.builder(
-                  physics: NeverScrollableScrollPhysics(),
+                  //physics: NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   itemCount: buttons.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
