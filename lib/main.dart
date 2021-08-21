@@ -57,8 +57,10 @@ class _HomePageState extends State<HomePage> {
       ), //AppBar
       backgroundColor: Colors.white38,
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           Expanded(
+            flex: 2,
             child: Container(
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -68,7 +70,7 @@ class _HomePageState extends State<HomePage> {
                       alignment: Alignment.centerRight,
                       child: Text(
                         userInput,
-                        style: TextStyle(fontSize: 18, color: Colors.white),
+                        style: TextStyle(fontSize: 25, color: Colors.white, fontWeight: FontWeight.w700),
                       ),
                     ),
                     Container(
@@ -77,7 +79,7 @@ class _HomePageState extends State<HomePage> {
                       child: Text(
                         answer,
                         style: TextStyle(
-                            fontSize: 30,
+                            fontSize: 35,
                             color: Colors.white,
                             fontWeight: FontWeight.bold),
                       ),
@@ -89,8 +91,11 @@ class _HomePageState extends State<HomePage> {
             flex: 3,
             child: Container(
               child: GridView.builder(
+                  physics: NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
                   itemCount: buttons.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    childAspectRatio: 1.4,
                       crossAxisCount: 4),
                   itemBuilder: (BuildContext context, int index) {
                     // Clear Button
@@ -100,6 +105,7 @@ class _HomePageState extends State<HomePage> {
                           setState(() {
                             userInput = '';
                             answer = '0';
+                            print('pressed me $index');
                           });
                         },
                         buttonText: buttons[index],
@@ -107,7 +113,6 @@ class _HomePageState extends State<HomePage> {
                         textColor: Colors.black,
                       );
                     }
-
                     // +/- button
                     else if (index == 1) {
                       return MyButton(
@@ -156,7 +161,6 @@ class _HomePageState extends State<HomePage> {
                         textColor: Colors.white,
                       );
                     }
-
                     //  other buttons
                     else {
                       return MyButton(
